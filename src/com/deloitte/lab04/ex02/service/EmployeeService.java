@@ -1,6 +1,6 @@
-package com.deloitte.lab04.ex04.service;
+package com.deloitte.lab04.ex02.service;
 
-import com.deloitte.lab04.ex04.bean.Employee;
+import com.deloitte.lab04.ex02.bean.Employee;
 
 public interface EmployeeService {
     Employee getEmployeeDetails();
