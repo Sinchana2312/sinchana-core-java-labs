@@ -3,44 +3,35 @@ package com.deloitte.lab03.ex03;
 import java.util.Scanner;
 
 public class Lab3Ex3 {
-    
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a string:");
-        String input = sc.nextLine();
+
+    public static String alterString(String input) {
+        StringBuilder result = new StringBuilder();
         
-        String result = alterString(input);
-        System.out.println("Output: " + result);
-        
-        sc.close();
-    }
-    
-    public static String alterString(String str) {
-        StringBuilder alteredStr = new StringBuilder();
-        
-        for (int i = 0; i < str.length(); i++) {
-            char currChar = str.charAt(i);
-            
-            if (isVowel(currChar)) {
-                alteredStr.append(currChar);
-            } else if (Character.isLetter(currChar)) {
-                char nextChar = (char) (currChar + 1);
-                
-                if (isVowel(nextChar)) {
-                    nextChar = (char) (nextChar + 1);
-                }
-                
-                alteredStr.append(nextChar);
+        for (char ch : input.toCharArray()) {
+            if (isConsonant(ch)) {
+                result.append((char) (ch + 1));
             } else {
-                alteredStr.append(currChar);
+                result.append(ch);
             }
         }
         
-        return alteredStr.toString();
+        return result.toString();
     }
-    
-    public static boolean isVowel(char c) {
-        char ch = Character.toLowerCase(c);
-        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+
+    private static boolean isConsonant(char ch) {
+        return Character.isLetter(ch) && "AEIOUaeiou".indexOf(ch) == -1;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        
+        String alteredString = alterString(input);
+        
+        System.out.println("Altered String: " + alteredString);
+        
+        scanner.close();
     }
 }
