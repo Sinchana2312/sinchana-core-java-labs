@@ -1,4 +1,4 @@
-package com.deloitte.lab04.ex04.com.cg.eis.bean;
+package com.deloitte.lab04.ex02.com.cg.eis.bean;
 
 public class Employee {
     private int id;
@@ -14,7 +14,6 @@ public class Employee {
         this.designation = designation;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
