@@ -17,9 +17,9 @@ public class Lab6Ex2 {
         scanner.close();
     }
 
-    static Map<Character, Integer> countChars(char[] chars) {
+    static Map<Character, Integer> countChars(char[] arr) {
         Map<Character, Integer> countMap = new HashMap<>();
-        for (char c : chars) {
+        for (char c : arr) {
             countMap.put(c, countMap.getOrDefault(c, 0) + 1);
         }
         return countMap;
