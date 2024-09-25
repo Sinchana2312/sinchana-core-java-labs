@@ -98,40 +98,18 @@ public class Lab4Ex1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter details for Sinchana's account:");
-        System.out.print("Name: ");
-        String sinchanaName = scanner.nextLine();
-        System.out.print("Age: ");
-        float sinchanaAge = scanner.nextFloat();
-        System.out.print("Initial Balance: ");
-        double sinchanaInitialBalance = scanner.nextDouble();
+        Person smith = new Person("Smith", 30);
+        Account smithAcc = new SavingsAccount(smith, 2000);
+        
+        Person kathy = new Person("Kathy", 28);
+        Account kathyAcc = new CurrentAccount(kathy, 3000, 1000);
+        
+        smithAcc.deposit(2000);
+        
+        kathyAcc.withdraw(2000);
 
-        Person sinchana = new Person(sinchanaName, sinchanaAge);
-        Account sinchanaAcc = new SavingsAccount(sinchana, sinchanaInitialBalance);
-
-        System.out.println("Enter details for Sujan's account:");
-        scanner.nextLine();  // Consume newline
-        System.out.print("Name: ");
-        String sujanName = scanner.nextLine();
-        System.out.print("Age: ");
-        float sujanAge = scanner.nextFloat();
-        System.out.print("Initial Balance: ");
-        double sujanInitialBalance = scanner.nextDouble();
-        System.out.print("Overdraft Limit: ");
-        double overdraftLimit = scanner.nextDouble();
-
-        Person sujan = new Person(sujanName, sujanAge);
-        Account sujanAcc = new CurrentAccount(sujan, sujanInitialBalance, overdraftLimit);
-
-        System.out.print("Enter deposit amount for Sinchana: ");
-        double sinchanaDeposit = scanner.nextDouble();
-        sinchanaAcc.deposit(sinchanaDeposit);
-        System.out.println("Sinchana's account balance: " + sinchanaAcc.getBalance());
-
-        System.out.print("Enter withdrawal amount for Sujan: ");
-        double sujanWithdraw = scanner.nextDouble();
-        sujanAcc.withdraw(sujanWithdraw);
-        System.out.println("Sujan's account balance: " + sujanAcc.getBalance());
+        System.out.println("Smith's Account Balance: " + smithAcc.getBalance());
+        System.out.println("Kathy's Account Balance: " + kathyAcc.getBalance());
 
         scanner.close();
     }
